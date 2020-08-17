@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.entrepreneur.application;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +51,19 @@ public class EntrepreneurApplicationShowService implements AbstractShowService<E
 		String tickerInv = this.repository.findTickerOfInvestmentRoundbyIdApp(entity.getId());
 		entity.setTickerOfInvest(tickerInv);
 
-		request.unbind(entity, model, "ticker", "tickerOfInvest", "creation", "statement", "offer", "status", "answer", "investmentRound", "investor");
+		int appId = request.getModel().getInteger("id");
+		Application app = this.repository.findOneById(appId);
+		Integer idInvest = app.getInvestmentRound().getId();
+
+		List<Integer> listIdInvestFromAlerta = this.repository.findIdInvestFromAlerta();
+
+		for (Integer id : listIdInvestFromAlerta) {
+			if (idInvest.toString().equals(id.toString())) {
+				entity.setContieneAlerta(true);
+			}
+		}
+
+		request.unbind(entity, model, "ticker", "tickerOfInvest", "creation", "statement", "offer", "status", "answer", "investmentRound", "investor", "link", "pass", "cc", "contieneAlerta");
 	}
 
 	@Override

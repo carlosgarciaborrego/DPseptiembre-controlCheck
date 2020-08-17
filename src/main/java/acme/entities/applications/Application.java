@@ -13,6 +13,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.URL;
+
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Investor;
 import acme.framework.datatypes.Money;
@@ -49,6 +51,18 @@ public class Application extends DomainEntity {
 	private String				status;
 
 	private String				answer;
+
+	//---Check
+	@URL
+	private String				link;
+
+	private String				pass;
+
+	private String				cc;
+
+	private Boolean				contieneAlerta;
+
+	//--------
 
 	@NotNull
 	@Valid

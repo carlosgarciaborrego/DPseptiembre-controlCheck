@@ -41,6 +41,15 @@
 	<jstl:if test="${status == 'Accepted' || (status == 'Rejected' && answer != '')}">
 			<acme:form-textbox code="authenticated.application.form.label.status" path="status" readonly="true"/>
 			<acme:form-textbox code="authenticated.application.form.label.answer" path="answer" readonly="true"/>
+			<jstl:if test="${pass=='' && contieneAlerta == true}">
+				<acme:form-url code="entrepreneur.application.form.label.link" path="link" readonly="true"/>
+			</jstl:if>
+			<jstl:if test="${pass!='' && contieneAlerta == true}">
+				<acme:form-textbox code="entrepreneur.application.form.label.cc" path="cc"/>
+				<jstl:if test="${pass==cc}">
+					<acme:form-url code="entrepreneur.application.form.label.link" path="link"/>
+				</jstl:if>
+			</jstl:if>
 	</jstl:if>
 	
 	<acme:form-textbox code="authenticated.application.form.label.statement" path="statement" readonly="true"/>

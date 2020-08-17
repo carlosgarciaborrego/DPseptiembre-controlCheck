@@ -221,6 +221,7 @@
 		<property name="hasApp" value="false" />
 		<property name="active" value="true" />
 		<property name="isInvestor" value="false" />
+		<property name="ayuda" value="true"/>
 		<property name="entrepreneur" ref="entrepreneur1" />
 	</bean>
 	
@@ -235,6 +236,7 @@
 		<property name="hasApp" value="false" />
 		<property name="active" value="true" />
 		<property name="isInvestor" value="false" />
+		<property name="ayuda" value="true"/>
 		<property name="entrepreneur" ref="entrepreneur2" />
 	</bean>
 	
@@ -249,6 +251,7 @@
 		<property name="hasApp" value="false" />
 		<property name="active" value="false" />
 		<property name="isInvestor" value="false" />
+		<property name="ayuda" value="false"/>
 		<property name="entrepreneur" ref="entrepreneur2" />
 	</bean>
 	
@@ -276,8 +279,15 @@
 		<property name="investmentRound" ref="investmentRound2" />
 	</bean>
 	
-
+	<bean name="alerta1" class="acme.entities.alertas.Alerta">
+		<property name="text" value="Esto es un texto para alerta 1"/>
+		<property name="investmentRound" ref="investmentRound1"/>
+	</bean>
 	
+	<bean name="alerta2" class="acme.entities.alertas.Alerta">
+		<property name="text" value="Esto es un texto para alerta 2"/>
+		<property name="investmentRound" ref="investmentRound2"/>
+	</bean>
 	
 	<bean name="entrepreneurUserAccount1" class="acme.framework.entities.UserAccount">
 		<property name="username" value="entre123" />
@@ -412,6 +422,10 @@
 		<property name="status" value="Accepted" />
 		<property name="answer" value="" />
 		<property name="investmentRound" ref="investmentRound1" />
+		<property name="link" value="http://www.my-curriculum.com" />
+		<property name="pass" value="" />
+		<property name="cc" value="" />
+		<property name="contieneAlerta" value="true" />
 		<property name="investor" ref="investor1" />
 	</bean>
 	
@@ -423,6 +437,10 @@
 		<property name="offer" ref="money16" />
 		<property name="status" value="Pending" />
 		<property name="answer" value="" />
+		<property name="link" value="" />
+		<property name="pass" value="" />
+		<property name="cc" value="" />
+		<property name="contieneAlerta" value="true" />
 		<property name="investmentRound" ref="investmentRound2" />
 		<property name="investor" ref="investor1" />
 	</bean>
@@ -435,6 +453,10 @@
 		<property name="offer" ref="money17" />
 		<property name="status" value="Rejected" />
 		<property name="answer" value="Lo siento pero no se aceptan mas solicitudes" />
+		<property name="link" value="http://www.dame-dinero.com" />
+		<property name="pass" value="contraseña123!" />
+		<property name="cc" value="" />
+		<property name="contieneAlerta" value="true" />
 		<property name="investmentRound" ref="investmentRound1" />
 		<property name="investor" ref="investor2" />
 	</bean>
@@ -447,6 +469,10 @@
 		<property name="offer" ref="money18" />
 		<property name="status" value="Accepted" />
 		<property name="answer" value="" />
+		<property name="link" value="http://www.my-curriculum2.com" />
+		<property name="pass" value="contraseñas123!" />
+		<property name="cc" value="contraseñas123!" />
+		<property name="contieneAlerta" value="true" />
 		<property name="investmentRound" ref="investmentRound2" />
 		<property name="investor" ref="investor2" />
 	</bean>
@@ -459,6 +485,10 @@
 		<property name="offer" ref="money19" />
 		<property name="status" value="Rejected" />
 		<property name="answer" value="No te queremos" />
+		<property name="link" value="http://www.my-curriculum.com" />
+		<property name="pass" value="" />
+		<property name="cc" value="" />
+		<property name="contieneAlerta" value="true" />
 		<property name="investmentRound" ref="investmentRound1" />
 		<property name="investor" ref="investor1" />
 	</bean>

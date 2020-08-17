@@ -18,6 +18,14 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `alerta` (
+       `id` integer not null,
+        `version` integer not null,
+        `text` varchar(255),
+        `investment_round_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `anonymous` (
        `id` integer not null,
         `version` integer not null,
@@ -29,9 +37,13 @@
        `id` integer not null,
         `version` integer not null,
         `answer` varchar(255),
+        `cc` varchar(255),
+        `contiene_alerta` bit,
         `creation` datetime(6),
+        `link` varchar(255),
         `offer_amount` double precision,
         `offer_currency` varchar(255),
+        `pass` varchar(255),
         `statement` varchar(255),
         `status` varchar(255),
         `ticker` varchar(255),
@@ -108,6 +120,7 @@
         `active` bit,
         `amount_amount` double precision,
         `amount_currency` varchar(255),
+        `ayuda` bit,
         `creation` datetime(6),
         `description` varchar(255),
         `has_app` bit,
@@ -204,6 +217,9 @@
 
     insert into `hibernate_sequence` values ( 1 );
 create index IDXoikcik1s2gvb23tcqtxotkrte on `activity` (`start_date`);
+
+    alter table `alerta` 
+       add constraint UK_4cggmyq2uuk2n641lu6k2mwio unique (`investment_round_id`);
 create index IDX6fmsp547p4ql4cgit2hk0uxjs on `application` (`creation`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDXbxl80lmv6juldr0kq8flif43f on `inquiry` (`creation`);
@@ -225,6 +241,11 @@ create index IDXs6ga4e8wd3ygn3b5o4l14q6ti on `tool_record` (`stars`);
        add constraint FK_2a5vcjo3stlfcwadosjfq49l1 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `alerta` 
+       add constraint `FKk3rwsnajvdt8t7ygmsqhc8y05` 
+       foreign key (`investment_round_id`) 
+       references `investment_round` (`id`);
 
     alter table `anonymous` 
        add constraint FK_6lnbc6fo3om54vugoh8icg78m 

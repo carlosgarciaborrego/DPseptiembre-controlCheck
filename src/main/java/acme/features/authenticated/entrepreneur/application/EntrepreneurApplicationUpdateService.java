@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.entrepreneur.application;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,7 +61,7 @@ public class EntrepreneurApplicationUpdateService implements AbstractUpdateServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "tickerOfInvest", "statement", "offer", "status", "answer", "investmentRound", "investor");
+		request.unbind(entity, model, "ticker", "tickerOfInvest", "statement", "offer", "status", "answer", "investmentRound", "investor", "link", "pass", "cc");
 	}
 
 	@Override
@@ -87,6 +88,11 @@ public class EntrepreneurApplicationUpdateService implements AbstractUpdateServi
 
 		if (entity.getStatus().contains(sr) && entity.getAnswer() == "") {
 			errors.state(request, false, "answer", "authenticated.entrepreneur.application.form.label.answer");
+		}
+
+		if (StringUtils.isNotBlank(entity.getCc()) && StringUtils.isNotBlank(entity.getPass()) && !entity.getCc().equals(entity.getPass())) {
+			errors.state(request, false, "cc", "authenticated.entrepreneur.application.form.badPassword");
+
 		}
 
 	}

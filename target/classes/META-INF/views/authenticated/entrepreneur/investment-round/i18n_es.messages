@@ -11,6 +11,9 @@ authenticated.investmentRound.form.button.return = Atrás
 authenticated.investmentRoundform.label.activity = Actividades
 entrepreneur.activity.form.label.create.activity = Crear Actividad
 
+entrepreneur.investmentRound.label.alerta = Mostrar Alerta
+entrepreneur.investmentRound.form.label.create.alerta = Crear Alerta
+
 
 entrepreneur.investmentRound.form.button.update = Actualizar
 entrepreneur.investmentRound.form.button.create = Crear

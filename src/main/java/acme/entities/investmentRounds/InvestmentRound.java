@@ -62,6 +62,10 @@ public class InvestmentRound extends DomainEntity {
 	@NotNull
 	private Boolean				isInvestor;
 
+	//-----check----
+	private Boolean				ayuda;
+	//-------------
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)

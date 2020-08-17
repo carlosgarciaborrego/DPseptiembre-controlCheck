@@ -2,6 +2,7 @@
 package acme.features.authenticated.entrepreneur.application;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -23,4 +24,7 @@ public interface EntrepreneurApplicationRepository extends AbstractRepository {
 
 	@Query("select a.investmentRound.ticker from Application a where a.id = ?1")
 	String findTickerOfInvestmentRoundbyIdApp(int id);
+
+	@Query("select a.investmentRound.id from Alerta a")
+	List<Integer> findIdInvestFromAlerta();
 }

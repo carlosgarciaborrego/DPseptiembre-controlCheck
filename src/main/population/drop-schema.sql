@@ -7,6 +7,10 @@
        drop 
        foreign key FK_2a5vcjo3stlfcwadosjfq49l1;
 
+    alter table `alerta` 
+       drop 
+       foreign key `FKk3rwsnajvdt8t7ygmsqhc8y05`;
+
     alter table `anonymous` 
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
@@ -38,6 +42,8 @@
     drop table if exists `activity`;
 
     drop table if exists `administrator`;
+
+    drop table if exists `alerta`;
 
     drop table if exists `anonymous`;
 

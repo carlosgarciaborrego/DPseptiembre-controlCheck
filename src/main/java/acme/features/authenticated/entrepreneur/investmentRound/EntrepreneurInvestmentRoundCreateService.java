@@ -61,6 +61,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 		res.setActive(false);
 		res.setHasApp(false);
 		res.setIsInvestor(false);
+		res.setAyuda(false);
 		return res;
 	}
 

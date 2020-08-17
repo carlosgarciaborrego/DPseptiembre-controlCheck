@@ -111,7 +111,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "tickerOfInvest", "creation", "status", "answer");
+		request.bind(entity, errors, "tickerOfInvest", "creation", "status", "answer", "link", "pass", "cc", "contieneAlerta");
 	}
 
 	@Override
@@ -145,6 +145,14 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 
 		String tickerInv = "";
 		res.setTickerOfInvest(tickerInv);
+
+		String link = "";
+		String pass = "";
+		String cc = "";
+		res.setLink(link);
+		res.setPass(pass);
+		res.setCc(cc);
+		res.setContieneAlerta(false);
 
 		return res;
 

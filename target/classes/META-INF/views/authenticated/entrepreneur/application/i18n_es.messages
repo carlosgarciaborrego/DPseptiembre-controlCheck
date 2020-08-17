@@ -7,6 +7,9 @@ authenticated.application.form.label.answer = Answer:
 authenticated.application.form.button.return = Atrás
 authenticated.entrepreneur.application.form.label.answer = Si el estado es Rechazado, debes indicar el motivo
 authenticated.entrepreneur.form.button.update = Actualizar
+authenticated.entrepreneur.application.form.badPassword = Contraseña incorrecta, pruebe otra vez
+entrepreneur.application.form.label.link = Enlace:
+entrepreneur.application.form.label.cc = Contraseña:
 
 authenticated.application.list.label.ticker = Ticker
 authenticated.application.list.label.creation = Creación

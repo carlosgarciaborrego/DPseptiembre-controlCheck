@@ -27,6 +27,9 @@ public class InvestorApplicationController extends AbstractController<Investor, 
 	@Autowired
 	private InvestorApplicationCreateService	createService;
 
+	@Autowired
+	private InvestorApplicationUpdateService	updateService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -35,6 +38,7 @@ public class InvestorApplicationController extends AbstractController<Investor, 
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 	}
 
 }

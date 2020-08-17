@@ -9,6 +9,9 @@ entrepreneur.investmentRound.duplicatedTicker = Este ticker ya existe
 investor.application.form.label.create.application = Crear
 authenticated.application.form.label.status = Estado:
 authenticated.application.form.label.answer = Respuesta:
+investor.application.form.label.link = Enlace:
+investor.application.form.label.pass = Contraseña:
+investor.application.form.button.update = Actualizar 
 
 
 

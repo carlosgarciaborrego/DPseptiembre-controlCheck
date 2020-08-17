@@ -5,7 +5,7 @@ authenticated.activity.form.label.budget = Presupuesto:
 authenticated.activity.form.button.return = Atrás
 authenticated.activity.form.button.create = Crear Actividad
 authenticated.activity.form.button.update = Actualizar Actividad
-authenticated.activity.form.button.delete = Eliminar Actualidad
+authenticated.activity.form.button.delete = Eliminar Actividad
 entrepreneur.activity.startDate = Las fechas deben estar en fututo y la fecha de inicio debe ser anterior a la fecha de fin
 
 authenticated.activity.list.label.title = Título:
