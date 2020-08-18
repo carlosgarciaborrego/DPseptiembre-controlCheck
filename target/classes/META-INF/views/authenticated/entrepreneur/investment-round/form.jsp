@@ -32,7 +32,7 @@
 					<acme:form-submit code="authenticated.investmentRoundform.label.activity" action="/entrepreneur/activity/list?id=${id}" method="get"/>
 					<acme:form-submit code="entrepreneur.activity.form.label.create.activity" action="/entrepreneur/activity/create?id=${id}" method="get" />	
 					<acme:form-submit code="entrepreneur.investmentRound.label.alerta" action="/entrepreneur/alerta/list?id=${id}" method="get"/>
-					<jstl:if test="${ayuda ==false}">
+					<jstl:if test="${ayuda ==false }">
 						<acme:form-submit code="entrepreneur.investmentRound.form.label.create.alerta" action="/entrepreneur/alerta/create?id=${id}" method="get" />
 					</jstl:if>
 						

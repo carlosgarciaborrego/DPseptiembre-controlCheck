@@ -12,7 +12,8 @@ authenticated.application.form.label.answer = Answer:
 investor.application.form.label.link = Link:
 investor.application.form.label.pass = Password:
 investor.application.form.button.update = Update
-
+investor.application.list.label.pass = Password:
+investor.application.confirmationPass = Password must be at least 10 characters long and must contain 1 letter, 1 number and 1 special symbol
 
 
 authenticated.application.list.label.ticker = Ticker

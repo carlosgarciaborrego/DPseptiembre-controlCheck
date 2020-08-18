@@ -44,8 +44,9 @@
 			<jstl:if test="${pass=='' && contieneAlerta == true}">
 				<acme:form-url code="entrepreneur.application.form.label.link" path="link" readonly="true"/>
 			</jstl:if>
-			<jstl:if test="${pass!='' && contieneAlerta == true}">
-				<acme:form-textbox code="entrepreneur.application.form.label.cc" path="cc"/>
+			<jstl:if test="${pass!='' && (contieneAlerta == true || contieneAlerta == null)}">
+				<acme:form-password code="entrepreneur.application.form.label.cc" path="cc"/>
+				
 				<jstl:if test="${pass==cc}">
 					<acme:form-url code="entrepreneur.application.form.label.link" path="link"/>
 				</jstl:if>
@@ -55,7 +56,7 @@
 	<acme:form-textbox code="authenticated.application.form.label.statement" path="statement" readonly="true"/>
 	<acme:form-money code="authenticated.application.form.label.offer" path="offer" readonly="true"/>
 	<acme:form-return code="authenticated.application.form.button.return"/>
-	<jstl:if test="${status == 'Pending' || (status == 'Rejected' && answer == '')}">
+	<jstl:if test="${status == 'Pending' }">
 		<acme:form-submit test="${command == 'show'}" code="authenticated.entrepreneur.form.button.update" action="/entrepreneur/application/update"/>
 		<acme:form-submit test="${command == 'update'}" code="authenticated.entrepreneur.form.button.update" action="/entrepreneur/application/update"/>
 	</jstl:if>

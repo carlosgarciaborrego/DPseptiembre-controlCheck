@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.activities.Activity;
+import acme.entities.alertas.Alerta;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.features.authenticated.entrepreneur.activity.EntrepreneurActivityRepository;
+import acme.features.authenticated.entrepreneur.alerta.EntrepreneurAlertaRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -24,6 +26,9 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 
 	@Autowired
 	EntrepreneurActivityRepository			repoActivity;
+
+	@Autowired
+	EntrepreneurAlertaRepository			repoAlerta;
 
 
 	@Override
@@ -95,7 +100,11 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 		for (Activity a : activities) {
 			this.repoActivity.delete(a);
 		}
-		System.out.println(activities);
+
+		Collection<Alerta> alertas = this.repository.findAlertasByInvestmentRoundId(entity.getId());
+		for (Alerta a : alertas) {
+			this.repoAlerta.delete(a);
+		}
 
 		this.repository.delete(entity);
 	}

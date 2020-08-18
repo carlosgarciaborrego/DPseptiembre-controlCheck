@@ -45,7 +45,9 @@ public class InvestorApplicationUpdateService implements AbstractUpdateService<I
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "contieneMolet");
+		;
+
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -55,7 +57,7 @@ public class InvestorApplicationUpdateService implements AbstractUpdateService<I
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "tickerOfInvest", "creation", "statement", "offer", "status", "answer", "investmentRound", "investor", "link", "pass", "cc", "contieneMolet");
+		request.unbind(entity, model, "ticker", "tickerOfInvest", "creation", "statement", "offer", "status", "answer", "investmentRound", "investor", "link", "pass", "cc");
 	}
 
 	@Override
@@ -119,7 +121,6 @@ public class InvestorApplicationUpdateService implements AbstractUpdateService<I
 	public void update(final Request<Application> request, final Application entity) {
 		assert request != null;
 		assert entity != null;
-
 		this.repository.save(entity);
 	}
 

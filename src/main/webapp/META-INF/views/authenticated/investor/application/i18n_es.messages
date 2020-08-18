@@ -12,7 +12,8 @@ authenticated.application.form.label.answer = Respuesta:
 investor.application.form.label.link = Enlace:
 investor.application.form.label.pass = Contraseña:
 investor.application.form.button.update = Actualizar 
-
+investor.application.list.label.pass = Contraseña:
+investor.application.confirmationPass = La contraseña debe ser al menos de 10 caracteres y debe contener 1 letra, 1 número y 1 símbolo especial
 
 
 authenticated.application.list.label.ticker = Ticker

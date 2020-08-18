@@ -29,6 +29,9 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select a from Activity a where a.investmentRound.id = ?1")
 	Collection<Activity> findActivitiesByInvestmentRoundId(int id);
 
+	@Query("select a from Alerta a where a.investmentRound.id = ?1")
+	Collection<Alerta> findAlertasByInvestmentRoundId(int id);
+
 	@Query("select ua from InvestmentRound ua where ua.ticker = ?1")
 	InvestmentRound findByTicker(String ticker);
 
