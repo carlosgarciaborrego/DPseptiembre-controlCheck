@@ -111,7 +111,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "tickerOfInvest", "creation", "status", "answer", "link", "pass", "cc", "contieneAlerta");
+		request.bind(entity, errors, "tickerOfInvest", "creation", "status", "answer", "cc", "contieneAlerta");
 	}
 
 	@Override
@@ -121,7 +121,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "statement", "offer");
+		request.unbind(entity, model, "ticker", "statement", "offer", "link", "pass");
 		model.setAttribute("id", entity.getInvestmentRound().getId());
 	}
 
@@ -152,7 +152,19 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		res.setLink(link);
 		res.setPass(pass);
 		res.setCc(cc);
-		res.setContieneAlerta(false);
+
+		List<Integer> listIdInvestFromAlerta = this.repository.findIdInvestFromAlerta();
+
+		Integer idInvest = res.getInvestmentRound().getId();
+
+		for (Integer id : listIdInvestFromAlerta) {
+			if (idInvest.toString().equals(id.toString())) {
+				res.setContieneAlerta(true);
+				break;
+			} else {
+				res.setContieneAlerta(false);
+			}
+		}
 
 		return res;
 

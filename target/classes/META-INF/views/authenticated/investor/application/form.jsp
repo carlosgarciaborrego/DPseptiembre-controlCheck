@@ -15,14 +15,14 @@
 	<jstl:if test="${command != 'create'}">
 		<acme:form-textbox code="authenticated.application.form.label.status" path="status" readonly="true"/>
 		<acme:form-textbox code="authenticated.application.form.label.answer" path="answer" readonly="true"/>
-		
-		<jstl:if test="${contieneAlerta ==true || contieneAlerta == null}">
-			<acme:form-url code="investor.application.form.label.link" path="link"/>
-			<acme:form-password code="investor.application.list.label.pass" path="pass"/>
+	</jstl:if>
+	
+	<jstl:if test="${(contieneAlerta ==true || contieneAlerta==null) && command != 'create'}">
+			<acme:form-url code="investor.application.form.label.link" path="link"  />
+			<acme:form-password code="investor.application.list.label.pass" path="pass" />
 			<acme:form-submit test="${command == 'update'}" code="investor.application.form.button.update" action="/investor/application/update"/>
 			<acme:form-submit test="${command == 'show'}" code="investor.application.form.button.update" action="/investor/application/update"/>
 		</jstl:if> 
-	</jstl:if>
 	
 	<acme:form-return code="authenticated.application.form.button.return"/>
 

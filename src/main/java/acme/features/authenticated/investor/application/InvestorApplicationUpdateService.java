@@ -57,7 +57,17 @@ public class InvestorApplicationUpdateService implements AbstractUpdateService<I
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "tickerOfInvest", "creation", "statement", "offer", "status", "answer", "investmentRound", "investor", "link", "pass", "cc");
+		List<Integer> listIdInvestFromAlerta = this.repository.findIdInvestFromAlerta();
+
+		Integer idInvest = entity.getInvestmentRound().getId();
+
+		for (Integer id : listIdInvestFromAlerta) {
+			if (idInvest.toString().equals(id.toString())) {
+				entity.setContieneAlerta(true);
+			}
+		}
+
+		request.unbind(entity, model, "ticker", "tickerOfInvest", "creation", "statement", "offer", "status", "answer", "investmentRound", "investor", "link", "pass", "contieneAlerta");
 	}
 
 	@Override
@@ -77,43 +87,57 @@ public class InvestorApplicationUpdateService implements AbstractUpdateService<I
 		assert entity != null;
 		assert errors != null;
 
-		int MIN_CARACTERES = 10;
-		int MIN_LETRAS = 1;
-		int MIN_DIGITOS = 1;
-		int MIN_SIMBOLOS = 1;
+		List<Integer> listIdInvestFromAlerta = this.repository.findIdInvestFromAlerta();
 
-		int tot_digitos = 0;
-		int tot_letras = 0;
-		int tot_caracteres = 0;
-		int tot_simbolos = 0;
+		Integer idInvest = entity.getInvestmentRound().getId();
 
-		List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
+		for (Integer id : listIdInvestFromAlerta) {
+			if (idInvest.toString().equals(id.toString())) {
+				entity.setContieneAlerta(true);
+			}
+		}
 
-		if (entity.getPass().length() != 0) {
-			for (int i = 0; i < entity.getPass().length(); i++) {
-				char a = entity.getPass().charAt(i);
+		if (entity.getContieneAlerta() == true) {
 
-				if (Character.isDigit(a)) {
-					tot_digitos++;
-					tot_caracteres++;
-				}
-				if (Character.isLetter(a)) {
-					tot_letras++;
-					tot_caracteres++;
-				}
-				for (String symbol : list) {
-					String s = Character.toString(a);
-					if (symbol.equals(s)) {
-						tot_simbolos++;
+			int MIN_CARACTERES = 10;
+			int MIN_LETRAS = 1;
+			int MIN_DIGITOS = 1;
+			int MIN_SIMBOLOS = 1;
+
+			int tot_digitos = 0;
+			int tot_letras = 0;
+			int tot_caracteres = 0;
+			int tot_simbolos = 0;
+
+			List<String> list = Arrays.asList(",", ".", "'", ":", "-", "!", "¡", "?", "¿", "(", ")", ";");
+
+			if (entity.getPass().length() != 0) {
+				for (int i = 0; i < entity.getPass().length(); i++) {
+					char a = entity.getPass().charAt(i);
+
+					if (Character.isDigit(a)) {
+						tot_digitos++;
 						tot_caracteres++;
 					}
+					if (Character.isLetter(a)) {
+						tot_letras++;
+						tot_caracteres++;
+					}
+					for (String symbol : list) {
+						String s = Character.toString(a);
+						if (symbol.equals(s)) {
+							tot_simbolos++;
+							tot_caracteres++;
+						}
+					}
+
 				}
 
+				if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
+					errors.state(request, false, "pass", "investor.application.confirmationPass");
+				}
 			}
 
-			if (tot_caracteres < MIN_CARACTERES || tot_letras < MIN_LETRAS || tot_digitos < MIN_DIGITOS || tot_simbolos < MIN_SIMBOLOS) {
-				errors.state(request, false, "pass", "investor.application.confirmationPass");
-			}
 		}
 	}
 

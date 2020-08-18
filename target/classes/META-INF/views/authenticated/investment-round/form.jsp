@@ -18,5 +18,9 @@
 	<jstl:if test="${isInvestor == true}">
 	<acme:form-submit code="authenticated.investor.application.form.label.application" action="/investor/application/create?id=${id}" method="get"/>
 	</jstl:if>
+	
+	<jstl:if test="${ayuda==true}">
+		<acme:form-submit code="entrepreneur.investmentRound.label.alerta" action="/authenticated/alerta/list?id=${id}" method="get"/>
+	</jstl:if>
 </acme:form>
 

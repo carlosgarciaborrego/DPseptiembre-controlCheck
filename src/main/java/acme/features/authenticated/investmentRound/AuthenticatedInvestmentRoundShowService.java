@@ -4,6 +4,7 @@ package acme.features.authenticated.investmentRound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.alertas.Alerta;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Investor;
 import acme.features.authenticated.investor.AuthenticatedInvestorRepository;
@@ -26,7 +27,16 @@ public class AuthenticatedInvestmentRoundShowService implements AbstractShowServ
 	public boolean authorise(final Request<InvestmentRound> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int investmentRoundId;
+		InvestmentRound investmentRound;
+
+		investmentRoundId = request.getModel().getInteger("id");
+		investmentRound = this.repository.findOneById(investmentRoundId);
+
+		result = investmentRound.getActive();
+
+		return result;
 	}
 
 	@Override
@@ -45,7 +55,14 @@ public class AuthenticatedInvestmentRoundShowService implements AbstractShowServ
 			entity.setIsInvestor(false);
 		}
 
-		request.unbind(entity, model, "ticker", "creation", "kindRound", "title", "description", "amount", "link", "active", "hasApp", "isInvestor", "entrepreneur");
+		Alerta a = this.repository.findAlertaToThisInvestmentRound(entity.getId());
+		if (a == null) {
+			entity.setAyuda(false);
+		} else {
+			entity.setAyuda(true);
+		}
+
+		request.unbind(entity, model, "ticker", "creation", "kindRound", "title", "description", "amount", "link", "active", "hasApp", "isInvestor", "entrepreneur", "ayuda");
 
 	}
 
