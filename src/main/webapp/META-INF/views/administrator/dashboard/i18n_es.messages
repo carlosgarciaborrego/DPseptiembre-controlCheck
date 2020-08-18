@@ -1,0 +1,5 @@
+administrator.ratioInvestmentRoundsAlerta = Ratio de rondas de inversión que tiene una alerta
+administrator.ratioApplicationLink = Ratio de solicitudes que tiene un enlace adicional
+administrator.ratioApplicationPass = Ratio de solicitudes que tiene una contraseña 
+
+administrator.dash.form.button.return = Atrás

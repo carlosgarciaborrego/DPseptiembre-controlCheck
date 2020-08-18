@@ -52,6 +52,7 @@ master.menu.administrator.createToolRecord = Crear Registro Herramienta
 master.menu.administrator.listChallenge = Listar Retos
 master.menu.administrator.createChallenge = Crear Reto
 master.menu.administrator.customisationparameters = Parametros personalizables
+master.menu.administrator.dashboard = Estadísticas
 
 
 # master.menu.authenticated ########################################################
@@ -74,6 +75,7 @@ master.menu.entrepreneur.application = Listar Solicitudes
 # master.menu.investor ##########################################################
 master.menu.investor = Inversor
 master.menu.investor.application = Listar Solicitudes
+master.menu.investor.alerta = Listar Alertas
 
 # master.menu.user-account ####################################################
 

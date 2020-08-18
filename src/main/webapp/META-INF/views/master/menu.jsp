@@ -40,7 +40,7 @@
 			<acme:menu-suboption code="master.menu.administrator.listChallenge" action="/administrator/challenge/list"/>
 			<acme:menu-suboption code="master.menu.administrator.createChallenge" action="/administrator/challenge/create"/>
 			<acme:menu-suboption code="master.menu.administrator.customisationparameters" action="/administrator/customisation-parameters/show"/>
-			
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
 		</acme:menu-option>
@@ -64,6 +64,7 @@
 		
 		<acme:menu-option code="master.menu.investor" access="hasRole('Investor')">
 			<acme:menu-suboption code="master.menu.investor.application" action="/investor/application/list"/>
+			<acme:menu-suboption code="master.menu.investor.alerta" action="/investor/alerta/list"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>
