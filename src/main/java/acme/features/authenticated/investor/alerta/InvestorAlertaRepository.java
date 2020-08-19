@@ -18,4 +18,7 @@ public interface InvestorAlertaRepository extends AbstractRepository {
 	@Query("select d from Alerta d where d.investmentRound.active = true")
 	Collection<Alerta> findAllAlertawithInvestActive();
 
+	@Query("select a.investmentRound.ticker from Alerta a where a.id = ?1")
+	String findTickerOfInvest(int id);
+
 }

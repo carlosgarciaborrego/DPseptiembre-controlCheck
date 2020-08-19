@@ -29,7 +29,10 @@ public class InvestorAlertaShowService implements AbstractShowService<Investor, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "text");
+		String tickerOfInvestmentRound = this.repository.findTickerOfInvest(entity.getId());
+		entity.setTickerInvest(tickerOfInvestmentRound);
+
+		request.unbind(entity, model, "text", "tickerInvest");
 		model.setAttribute("finalMode", entity.getInvestmentRound().getActive());
 
 	}

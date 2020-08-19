@@ -440,7 +440,7 @@ has v</panel_attributes>
       <x>1015</x>
       <y>490</y>
       <w>406</w>
-      <h>126</h>
+      <h>168</h>
     </coordinates>
     <panel_attributes>Application
 --
@@ -451,6 +451,10 @@ has v</panel_attributes>
 + offer: Money {NotNull, Valid}
 + status: String {NotBlank}
 + answer: String
++ link: String {URL}
++ pass: String
++ cc: String
++ contieneAlerta: Boolean
 + investmentRound: InvestmentRound {NotNull, Valid, ManyToOne(optional=false)}
 + investor: Investor {NotNull, Valid, ManyToOne(optional = false)}
 </panel_attributes>
@@ -460,9 +464,9 @@ has v</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>406</x>
-      <y>483</y>
+      <y>476</y>
       <w>406</w>
-      <h>147</h>
+      <h>154</h>
     </coordinates>
     <panel_attributes>InvestmentRound
 --
@@ -475,6 +479,7 @@ has v</panel_attributes>
 + link: String {URL}
 + active: Boolean {NotNull}
 + hasApp: Boolean {NotNull}
++ ayuda: Boolean
 + isInventor: Boolean {NotNull}
 + entrepreneur: Entrepreneur {NotNull, Valid, ManyToOne(optional = false)}
 </panel_attributes>
@@ -541,18 +546,18 @@ Entrepreneur
       <x>574</x>
       <y>413</y>
       <w>35</w>
-      <h>84</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 m2=0..*
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>581</x>
+      <x>511</x>
       <y>441</y>
       <w>70</w>
       <h>21</h>
@@ -637,6 +642,46 @@ m2=0..*
     </coordinates>
     <panel_attributes>can apply for
 
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>700</y>
+      <w>399</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>Alerta
+--
++ text: String {NotBlank, Length(min=1,max=256)}
++ investmenrRound: InvesmentRound {NotNull, Valid, OneToOne(optional=false)}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>805</x>
+      <y>623</y>
+      <w>112</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=0..1
+</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>868</x>
+      <y>658</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>can have
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>

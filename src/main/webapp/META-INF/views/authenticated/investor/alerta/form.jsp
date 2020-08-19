@@ -5,6 +5,7 @@
 <acme:form readonly="true">
 
 	<acme:form-textarea code="investor.alerta.form.label.text" path="text"/>
+	<acme:form-textbox code="investor.alerta.form.label.ticker" path="tickerInvest"/>
 
 	<acme:form-return code="investor.alerta.form.button.return"/>
 	

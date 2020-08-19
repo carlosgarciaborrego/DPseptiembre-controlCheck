@@ -22,6 +22,7 @@
        `id` integer not null,
         `version` integer not null,
         `text` varchar(255),
+        `ticker_invest` varchar(255),
         `investment_round_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;

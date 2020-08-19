@@ -25,6 +25,8 @@ public class Alerta extends DomainEntity {
 	@Length(min = 1, max = 256)
 	private String				text;
 
+	private String				tickerInvest;
+
 	@NotNull
 	@Valid
 	@OneToOne(optional = false)

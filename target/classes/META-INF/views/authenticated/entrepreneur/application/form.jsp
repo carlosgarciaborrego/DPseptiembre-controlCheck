@@ -41,28 +41,24 @@
 	<jstl:if test="${status == 'Accepted' || (status == 'Rejected' && answer != '')}">
 			<acme:form-textbox code="authenticated.application.form.label.status" path="status" readonly="true"/>
 			<acme:form-textbox code="authenticated.application.form.label.answer" path="answer" readonly="true"/>
-			<jstl:if test="${pass=='' && contieneAlerta == true}">
+	</jstl:if>
+	<jstl:if test="${(pass=='' && link !='' && contieneAlerta == true) || ((status == 'Accepted' || (status == 'Rejected' && answer != '')) && contieneAlerta == true)}">
 				<acme:form-url code="entrepreneur.application.form.label.link" path="link" readonly="true"/>
 			</jstl:if>
-			<jstl:if test="${pass!='' && (contieneAlerta == true || contieneAlerta == null)}">
-				<acme:form-password code="entrepreneur.application.form.label.cc" path="cc"/>
-				
-				<jstl:if test="${pass==cc}">
-					<acme:form-url code="entrepreneur.application.form.label.link" path="link" readonly="true"/>
-				</jstl:if>
-			</jstl:if>
-	
-			
+	<jstl:if test="${pass!='' && (status == 'Pending' || (status == 'Rejected' && answer != '')) && (contieneAlerta == true || contieneAlerta == null)}">
+		<acme:form-password code="entrepreneur.application.form.label.cc" path="cc"/>
+		
+		<jstl:if test="${pass==cc}">
+			<acme:form-url code="entrepreneur.application.form.label.link" path="link" readonly="true"/>
+		</jstl:if>
 	</jstl:if>
+	
 	
 	<acme:form-textbox code="authenticated.application.form.label.statement" path="statement" readonly="true"/>
 	<acme:form-money code="authenticated.application.form.label.offer" path="offer" readonly="true"/>
 	<acme:form-return code="authenticated.application.form.button.return"/>
-	<jstl:if test="${status == 'Pending' || (status == 'Rejected' && answer=='')}">
-		<acme:form-submit test="${command == 'show'}" code="authenticated.entrepreneur.form.button.update" action="/entrepreneur/application/update"/>
-		<acme:form-submit test="${command == 'update'}" code="authenticated.entrepreneur.form.button.update" action="/entrepreneur/application/update"/>
-	</jstl:if>
-	<jstl:if test="${(contieneAlerta == true || contieneAlerta == null)  && pass != ''}">
+
+	<jstl:if test="${((contieneAlerta == true || contieneAlerta == null)  && pass != '') || (status == 'Pending' || (status == 'Rejected' && answer==''))}">
 		<acme:form-submit test="${command == 'show'}" code="authenticated.entrepreneur.form.button.update" action="/entrepreneur/application/update"/>
 		<acme:form-submit test="${command == 'update'}" code="authenticated.entrepreneur.form.button.update" action="/entrepreneur/application/update"/>
 	</jstl:if>

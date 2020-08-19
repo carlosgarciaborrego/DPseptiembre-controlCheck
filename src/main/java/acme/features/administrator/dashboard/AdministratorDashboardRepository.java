@@ -9,7 +9,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
 
-	@Query("select avg(select count(a) from Alerta a where a.investmentRound.id = ua.id) from InvestmentRound ua")
+	@Query("select avg(select count(a) from Alerta a where a.investmentRound.id = ua.id) from InvestmentRound ua where ua.active = true")
 	Double getRatioInvestmentRoundAlerta();
 
 	@Query("select avg(select a.pass !='' from Application a where a.id = ua.id) from Application ua")
