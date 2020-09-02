@@ -648,14 +648,15 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>896</x>
+      <x>903</x>
       <y>700</y>
-      <w>399</w>
-      <h>49</h>
+      <w>392</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Alerta
 --
 + text: String {NotBlank, Length(min=1,max=256)}
++ tickerInvest: String 
 + investmenrRound: InvesmentRound {NotNull, Valid, OneToOne(optional=false)}</panel_attributes>
     <additional_attributes/>
   </element>
