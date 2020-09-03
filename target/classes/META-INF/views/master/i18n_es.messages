@@ -75,7 +75,7 @@ master.menu.entrepreneur.application = Listar Solicitudes
 # master.menu.investor ##########################################################
 master.menu.investor = Inversor
 master.menu.investor.application = Listar Solicitudes
-master.menu.investor.alerta = Listar Alertas
+master.menu.investor.bulp = Listar Bulps
 
 # master.menu.user-account ####################################################
 

@@ -1,0 +1,5 @@
+investor.bulp.form.label.text = Text:
+investor.bulp.form.button.return = Return
+investor.bulp.form.label.ticker = Ticker of InvestmentRound
+
+investor.bulp.list.label.text = Text

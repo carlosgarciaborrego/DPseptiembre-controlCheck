@@ -7,10 +7,6 @@
        drop 
        foreign key FK_2a5vcjo3stlfcwadosjfq49l1;
 
-    alter table `alerta` 
-       drop 
-       foreign key `FKk3rwsnajvdt8t7ygmsqhc8y05`;
-
     alter table `anonymous` 
        drop 
        foreign key FK_6lnbc6fo3om54vugoh8icg78m;
@@ -26,6 +22,10 @@
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
+
+    alter table `bulp` 
+       drop 
+       foreign key `FKb8opju1jidna0jxa1g9c8a8bs`;
 
     alter table `entrepreneur` 
        drop 
@@ -43,13 +43,13 @@
 
     drop table if exists `administrator`;
 
-    drop table if exists `alerta`;
-
     drop table if exists `anonymous`;
 
     drop table if exists `application`;
 
     drop table if exists `authenticated`;
+
+    drop table if exists `bulp`;
 
     drop table if exists `challenge`;
 

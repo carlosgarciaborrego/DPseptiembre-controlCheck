@@ -1,0 +1,7 @@
+entrepreneur.bulp.form.label.text = Text:
+entrepreneur.bulp.form.button.return = Return
+authenticated.bulp.form.button.create = Bulp Create
+authenticated.bulp.form.button.update = Bulp Update
+authenticated.bulp.form.button.delete = Bulp Delete
+
+entrepreneur.bulp.list.label.text = Text

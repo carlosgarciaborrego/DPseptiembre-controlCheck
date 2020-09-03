@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.activities.Activity;
-import acme.entities.alertas.Alerta;
 import acme.entities.applications.Application;
+import acme.entities.bulps.Bulp;
 import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
@@ -29,8 +29,8 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select a from Activity a where a.investmentRound.id = ?1")
 	Collection<Activity> findActivitiesByInvestmentRoundId(int id);
 
-	@Query("select a from Alerta a where a.investmentRound.id = ?1")
-	Collection<Alerta> findAlertasByInvestmentRoundId(int id);
+	@Query("select a from Bulp a where a.investmentRound.id = ?1")
+	Collection<Bulp> findAlertasByInvestmentRoundId(int id);
 
 	@Query("select ua from InvestmentRound ua where ua.ticker = ?1")
 	InvestmentRound findByTicker(String ticker);
@@ -41,6 +41,6 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select a from Application a where a.investmentRound.id = ?1")
 	Collection<Application> findApplicationToThisInvestmentRound(int id);
 
-	@Query("select a from Alerta a where a.investmentRound.id =?1")
-	Alerta findAlertaToThisInvestmentRound(int id);
+	@Query("select a from Bulp a where a.investmentRound.id =?1")
+	Bulp findAlertaToThisInvestmentRound(int id);
 }

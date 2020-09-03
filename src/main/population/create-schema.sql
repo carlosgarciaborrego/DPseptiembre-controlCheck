@@ -18,15 +18,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `alerta` (
-       `id` integer not null,
-        `version` integer not null,
-        `text` varchar(255),
-        `ticker_invest` varchar(255),
-        `investment_round_id` integer not null,
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `anonymous` (
        `id` integer not null,
         `version` integer not null,
@@ -58,6 +49,15 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `bulp` (
+       `id` integer not null,
+        `version` integer not null,
+        `text` varchar(255),
+        `ticker_invest` varchar(255),
+        `investment_round_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -218,10 +218,10 @@
 
     insert into `hibernate_sequence` values ( 1 );
 create index IDXoikcik1s2gvb23tcqtxotkrte on `activity` (`start_date`);
-
-    alter table `alerta` 
-       add constraint UK_4cggmyq2uuk2n641lu6k2mwio unique (`investment_round_id`);
 create index IDX6fmsp547p4ql4cgit2hk0uxjs on `application` (`creation`);
+
+    alter table `bulp` 
+       add constraint UK_dd4cbi69r5rr17ra95of7f2gd unique (`investment_round_id`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDXbxl80lmv6juldr0kq8flif43f on `inquiry` (`creation`);
 create index IDXir1xhctjpl0x3ruy9r684wt53 on `investment_round` (`creation`);
@@ -243,11 +243,6 @@ create index IDXs6ga4e8wd3ygn3b5o4l14q6ti on `tool_record` (`stars`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `alerta` 
-       add constraint `FKk3rwsnajvdt8t7ygmsqhc8y05` 
-       foreign key (`investment_round_id`) 
-       references `investment_round` (`id`);
-
     alter table `anonymous` 
        add constraint FK_6lnbc6fo3om54vugoh8icg78m 
        foreign key (`user_account_id`) 
@@ -267,6 +262,11 @@ create index IDXs6ga4e8wd3ygn3b5o4l14q6ti on `tool_record` (`stars`);
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `bulp` 
+       add constraint `FKb8opju1jidna0jxa1g9c8a8bs` 
+       foreign key (`investment_round_id`) 
+       references `investment_round` (`id`);
 
     alter table `entrepreneur` 
        add constraint FK_r6tqltqvrlh1cyy8rsj5pev1q 

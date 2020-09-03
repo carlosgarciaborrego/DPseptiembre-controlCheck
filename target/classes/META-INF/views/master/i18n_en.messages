@@ -74,7 +74,7 @@ master.menu.entrepreneur.application = Application List
 # master.menu.investor ##########################################################
 master.menu.investor = Investor
 master.menu.investor.application = Application List
-master.menu.investor.alerta = Alerta List
+master.menu.investor.bulp = Bulp List
 
 # master.menu.user-account ####################################################
 

@@ -11,6 +11,7 @@ authenticated.investmentRound.form.button.return = Return
 
 authenticated.investmentRoundform.label.activity = Activities
 authenticated.investor.application.form.label.application = Application Create
+authenticated.investmentRound.label.bulp = Bulp
 
 authenticated.investmentRound.list.label.ticker = Ticker
 authenticated.investmentRound.list.label.creation = Creation

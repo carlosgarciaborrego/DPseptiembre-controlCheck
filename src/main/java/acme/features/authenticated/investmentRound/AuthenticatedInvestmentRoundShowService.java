@@ -4,7 +4,7 @@ package acme.features.authenticated.investmentRound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.alertas.Alerta;
+import acme.entities.bulps.Bulp;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Investor;
 import acme.features.authenticated.investor.AuthenticatedInvestorRepository;
@@ -55,7 +55,7 @@ public class AuthenticatedInvestmentRoundShowService implements AbstractShowServ
 			entity.setIsInvestor(false);
 		}
 
-		Alerta a = this.repository.findAlertaToThisInvestmentRound(entity.getId());
+		Bulp a = this.repository.findAlertaToThisInvestmentRound(entity.getId());
 		if (a == null) {
 			entity.setAyuda(false);
 		} else {

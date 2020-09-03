@@ -279,14 +279,14 @@
 		<property name="investmentRound" ref="investmentRound2" />
 	</bean>
 	
-	<bean name="alerta1" class="acme.entities.alertas.Alerta">
-		<property name="text" value="Esto es un texto para alerta 1"/>
+	<bean name="bulp1" class="acme.entities.bulps.Bulp">
+		<property name="text" value="Esto es un texto para bulp 1"/>
 		<property name="tickerInvest" value="ASR-10-001100"/>
 		<property name="investmentRound" ref="investmentRound1"/>
 	</bean>
 	
-	<bean name="alerta2" class="acme.entities.alertas.Alerta">
-		<property name="text" value="Esto es un texto para alerta 2"/>
+	<bean name="bulp2" class="acme.entities.bulps.Bulp">
+		<property name="text" value="Esto es un texto para bulp 2"/>
 		<property name="tickerInvest" value="MMM-10-001100"/>
 		<property name="investmentRound" ref="investmentRound2"/>
 	</bean>

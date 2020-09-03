@@ -6,8 +6,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.alertas.Alerta;
 import acme.entities.applications.Application;
+import acme.entities.bulps.Bulp;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.features.authenticated.entrepreneur.application.EntrepreneurApplicationRepository;
@@ -60,7 +60,7 @@ public class EntrepreneurInvestmentRoundShowService implements AbstractShowServi
 			entity.setHasApp(true);
 		}
 
-		Alerta a = this.repository.findAlertaToThisInvestmentRound(entity.getId());
+		Bulp a = this.repository.findAlertaToThisInvestmentRound(entity.getId());
 		if (a == null) {
 			entity.setAyuda(false);
 		} else {

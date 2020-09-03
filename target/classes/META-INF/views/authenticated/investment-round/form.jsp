@@ -20,7 +20,7 @@
 	</jstl:if>
 	
 	<jstl:if test="${ayuda==true}">
-		<acme:form-submit code="entrepreneur.investmentRound.label.alerta" action="/authenticated/alerta/list?id=${id}" method="get"/>
+		<acme:form-submit code="authenticated.investmentRound.label.bulp" action="/authenticated/bulp/list?id=${id}" method="get"/>
 	</jstl:if>
 </acme:form>
 

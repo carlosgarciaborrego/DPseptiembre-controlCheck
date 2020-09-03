@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.activities.Activity;
-import acme.entities.alertas.Alerta;
+import acme.entities.bulps.Bulp;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.features.authenticated.entrepreneur.activity.EntrepreneurActivityRepository;
-import acme.features.authenticated.entrepreneur.alerta.EntrepreneurAlertaRepository;
+import acme.features.authenticated.entrepreneur.bulp.EntrepreneurBulpRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -28,7 +28,7 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 	EntrepreneurActivityRepository			repoActivity;
 
 	@Autowired
-	EntrepreneurAlertaRepository			repoAlerta;
+	EntrepreneurBulpRepository				repoAlerta;
 
 
 	@Override
@@ -101,8 +101,8 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 			this.repoActivity.delete(a);
 		}
 
-		Collection<Alerta> alertas = this.repository.findAlertasByInvestmentRoundId(entity.getId());
-		for (Alerta a : alertas) {
+		Collection<Bulp> alertas = this.repository.findAlertasByInvestmentRoundId(entity.getId());
+		for (Bulp a : alertas) {
 			this.repoAlerta.delete(a);
 		}
 
